@@ -21,7 +21,18 @@ namespace Repository2025.Services
         }
         public bool SaveProduct(Product product)
         {
-            return _repository.Save(product);
+            bool exito;
+
+            var productAnterior = _repository.GetById(product.Codigo);
+
+            if (productAnterior == null) {
+                exito = _repository.Save(product);
+            } else
+            {
+                exito = false;
+            }
+
+            return exito;
         }
      }
 }

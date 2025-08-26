@@ -1598,23 +1598,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\musi\\.nuget\\packages\\": {},
+    "C:\\Users\\alumno\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\musi\\Desktop\\Repository2025\\Repository2025.csproj",
+      "projectUniqueName": "C:\\Users\\alumno\\PII-ProductRepository\\Repository2025.csproj",
       "projectName": "Repository2025",
-      "projectPath": "C:\\Users\\musi\\Desktop\\Repository2025\\Repository2025.csproj",
-      "packagesPath": "C:\\Users\\musi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\musi\\Desktop\\Repository2025\\obj\\",
+      "projectPath": "C:\\Users\\alumno\\PII-ProductRepository\\Repository2025.csproj",
+      "packagesPath": "C:\\Users\\alumno\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alumno\\PII-ProductRepository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\musi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1623,8 +1623,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\musi\\Downloads": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1642,8 +1640,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -1670,7 +1667,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

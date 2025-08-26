@@ -26,7 +26,7 @@ namespace Repository2025.Data
             return _instance;
         }
 
-        public DataTable ExecuteSPQuery(string sp)
+        public DataTable ExecuteSPQuery(string sp, List<ParametroSP>? param = null)
         {
             DataTable dt = new DataTable();        
             try
@@ -35,6 +35,15 @@ namespace Repository2025.Data
                 var cmd = new SqlCommand(sp, _connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = sp;
+
+                if (param != null)
+                {
+                    foreach (ParametroSP p in param)
+                    {
+                        cmd.Parameters.AddWithValue(p.Name, p.Valor);
+                    }
+                }
+
                 dt.Load(cmd.ExecuteReader());
             }
             catch (SqlException ex)
