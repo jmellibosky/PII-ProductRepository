@@ -37,9 +37,40 @@ namespace Repository2025.Data
             return lst;
         }
 
-        public Product GetById(int id)
+        public Product? GetById(int id)
         {
-            throw new NotImplementedException();
+            List<ParametroSP> param = new List<ParametroSP>()
+            {
+                new ParametroSP()
+                {
+                    Name = "@codigo",
+                    Valor = id
+                }
+            };
+
+            //List<ParametroSP> param2 = new List<ParametroSP>();
+            //ParametroSP p = new ParametroSP();
+            //p.Valor = id;
+            //p.Name = "codigo";
+            //param2.Add(p);
+
+            var dt = DataHelper.GetInstance().ExecuteSPQuery("SP_RECUPERAR_PRODUCTO_POR_CODIGO", param);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                Product p = new Product()
+                {
+                    Codigo = (int)dt.Rows[0]["codigo"],
+                    Nombre = (string)dt.Rows[0]["nombre"],
+                    Precio = (double)dt.Rows[0]["precio"],
+                    Stock = (int)dt.Rows[0]["stock"],
+                    Activo = (bool)dt.Rows[0]["esta_activo"]
+                };
+
+                return p;
+            }
+
+            return null;
         }
 
         public bool Save(Product product)

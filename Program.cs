@@ -11,3 +11,13 @@ if (lp.Count > 0)
 else
     Console.WriteLine("No hay productos...");
 
+Product? producto5 = oService.GetProductById(5);
+if (producto5 != null)
+{
+    Console.WriteLine(producto5);
+}
+else
+{
+    Console.WriteLine("No hay producto con ese id");
+}
+

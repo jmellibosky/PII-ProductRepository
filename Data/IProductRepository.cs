@@ -10,7 +10,7 @@ namespace Repository2025.Data
     public interface IProductRepository
     {
         List<Product> GetAll();
-        Product GetById(int id);
+        Product? GetById(int id);
         bool Save(Product product);
         bool Delete(int id);
     }

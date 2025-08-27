@@ -15,10 +15,17 @@ namespace Repository2025.Services
         {
             _repository = new ProductRepository();
         }
+        
         public List<Product> GetProducts()
         {
             return _repository.GetAll();
         }
+
+        public Product? GetProductById(int id)
+        {
+            return _repository.GetById(id);
+        }
+
         public bool SaveProduct(Product product)
         {
             bool exito;

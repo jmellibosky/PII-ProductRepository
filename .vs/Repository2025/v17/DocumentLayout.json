@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\alumno\\PII-ProductRepository\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\data\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:data\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\data\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:data\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\data\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:data\\datahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\data\\parametrosp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +27,8 @@
       "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:domain\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\data\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|solutionrelative:data\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3388EA97-FF6A-4780-8190-C62CCC1463BF}|Repository2025.csproj|c:\\users\\alumno\\pii-productrepository\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -42,11 +42,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ParametroSP.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\ParametroSP.cs",
               "RelativeDocumentMoniker": "Data\\ParametroSP.cs",
@@ -58,32 +62,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\IProductRepository.cs",
               "RelativeDocumentMoniker": "Data\\IProductRepository.cs",
               "ToolTip": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\IProductRepository.cs",
               "RelativeToolTip": "Data\\IProductRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAnAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T20:00:30.669Z"
+              "WhenOpened": "2025-08-24T20:00:30.669Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "DataHelper.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\DataHelper.cs",
               "RelativeDocumentMoniker": "Data\\DataHelper.cs",
-              "ToolTip": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\DataHelper.cs*",
-              "RelativeToolTip": "Data\\DataHelper.cs*",
-              "ViewState": "AQIAACkAAAAAAAAAAAAAwDIAAAAdAAAA",
+              "ToolTip": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\DataHelper.cs",
+              "RelativeToolTip": "Data\\DataHelper.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAADgvx4AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-24T19:36:35.338Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\PII-ProductRepository\\Domain\\Product.cs",
               "RelativeDocumentMoniker": "Domain\\Product.cs",
@@ -101,13 +106,14 @@
               "RelativeDocumentMoniker": "Data\\ProductRepository.cs",
               "ToolTip": "C:\\Users\\alumno\\PII-ProductRepository\\Data\\ProductRepository.cs",
               "RelativeToolTip": "Data\\ProductRepository.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwBYAAAA3AAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAUwEYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T19:30:42.593Z"
+              "WhenOpened": "2025-08-24T19:30:42.593Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\PII-ProductRepository\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -119,15 +125,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\PII-ProductRepository\\Services\\ProductService.cs",
               "RelativeDocumentMoniker": "Services\\ProductService.cs",
               "ToolTip": "C:\\Users\\alumno\\PII-ProductRepository\\Services\\ProductService.cs",
               "RelativeToolTip": "Services\\ProductService.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAASwBwAAAAYAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA2wBkAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-24T19:30:57.118Z"
+              "WhenOpened": "2025-08-24T19:30:57.118Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
