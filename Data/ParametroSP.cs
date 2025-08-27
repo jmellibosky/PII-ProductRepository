@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Repository2025.Data
 {
+    // Clase para representar un parámetro de un Stored Procedure
     public class ParametroSP
     {
         public string Name { get; set; }

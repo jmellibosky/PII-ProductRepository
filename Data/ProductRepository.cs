@@ -39,6 +39,7 @@ namespace Repository2025.Data
 
         public Product? GetById(int id)
         {
+            // Preparar parámetros
             List<ParametroSP> param = new List<ParametroSP>()
             {
                 new ParametroSP()
@@ -48,20 +49,25 @@ namespace Repository2025.Data
                 }
             };
 
-            //List<ParametroSP> param2 = new List<ParametroSP>();
-            //ParametroSP p = new ParametroSP();
-            //p.Valor = id;
-            //p.Name = "codigo";
-            //param2.Add(p);
+            // El bloque de arriba es equivalente a este bloque comentado
+            /*
+             * List<ParametroSP> param2 = new List<ParametroSP>();
+             * ParametroSP p = new ParametroSP();
+             * p.Valor = id;
+             * p.Name = "codigo";
+             * param2.Add(p);
+             */
 
+            // Traemos el registro correspondiente a través del SP
             var dt = DataHelper.GetInstance().ExecuteSPQuery("SP_RECUPERAR_PRODUCTO_POR_CODIGO", param);
 
+            // Si vino un registro, lo mapeamos a Product y lo retornamos
             if (dt != null && dt.Rows.Count > 0)
             {
                 Product p = new Product()
                 {
                     Codigo = (int)dt.Rows[0]["codigo"],
-                    Nombre = (string)dt.Rows[0]["nombre"],
+                    Nombre = (string)dt.Rows[0]["n_producto"],
                     Precio = (double)dt.Rows[0]["precio"],
                     Stock = (int)dt.Rows[0]["stock"],
                     Activo = (bool)dt.Rows[0]["esta_activo"]

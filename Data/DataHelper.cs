@@ -31,11 +31,13 @@ namespace Repository2025.Data
             DataTable dt = new DataTable();        
             try
             {
+                // Abrimos la conexión
                 _connection.Open();
                 var cmd = new SqlCommand(sp, _connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = sp;
 
+                // Agregamos parámetros si los hay
                 if (param != null)
                 {
                     foreach (ParametroSP p in param)
@@ -48,12 +50,15 @@ namespace Repository2025.Data
             }
             catch (SqlException ex)
             {
+                // En caso de error, retornamos null
                 dt = null;
             }
             finally
             {
+                // Cerramos la conexión
                 _connection.Close();
             }
+
             return dt;
         }
 

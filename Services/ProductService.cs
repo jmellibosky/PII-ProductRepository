@@ -10,6 +10,8 @@ namespace Repository2025.Services
 {
     public class ProductService
     {
+        // Referencia al repositorio de productos a través de su interfaz
+        // Esto permite cambiar la implementación del repositorio sin afectar el servicio
         private IProductRepository _repository;
         public ProductService()
         {
@@ -18,6 +20,7 @@ namespace Repository2025.Services
         
         public List<Product> GetProducts()
         {
+            // En algunos casos, no hay lógica de negocio adicional
             return _repository.GetAll();
         }
 
@@ -30,11 +33,15 @@ namespace Repository2025.Services
         {
             bool exito;
 
-            var productAnterior = _repository.GetById(product.Codigo);
+            // El Service sirve para agregar lógica de negocio según corresponda
+            // En este caso, verificamos que no exista un producto con el mismo código
+            var productEnBD = _repository.GetById(product.Codigo);
 
-            if (productAnterior == null) {
+            // Si no existe, lo guardamos
+            if (productEnBD == null) {
                 exito = _repository.Save(product);
-            } else
+            }
+            else
             {
                 exito = false;
             }

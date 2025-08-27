@@ -10,6 +10,7 @@ namespace Repository2025.Data
     public interface IProductRepository
     {
         List<Product> GetAll();
+        // El signo de interrogación indica que puede devolver null
         Product? GetById(int id);
         bool Save(Product product);
         bool Delete(int id);
