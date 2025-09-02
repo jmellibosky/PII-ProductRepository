@@ -1,4 +1,5 @@
 ﻿using Repository2025.Data;
+using Repository2025.Data.Interfaces;
 using Repository2025.Domain;
 using System;
 using System.Collections.Generic;
@@ -31,22 +32,33 @@ namespace Repository2025.Services
 
         public bool SaveProduct(Product product)
         {
-            bool exito;
-
-            // El Service sirve para agregar lógica de negocio según corresponda
-            // En este caso, verificamos que no exista un producto con el mismo código
-            var productEnBD = _repository.GetById(product.Codigo);
-
-            // Si no existe, lo guardamos
-            if (productEnBD == null) {
-                exito = _repository.Save(product);
-            }
-            else
-            {
-                exito = false;
-            }
-
-            return exito;
+            return _repository.Save(product);
         }
-     }
+
+        public bool DeleteProduct(int id)
+        {
+            // Verificamos que exista un producto con el mismo código
+            var productEnBD = _repository.GetById(id);
+
+            // Si existe, lo eliminamos
+            return productEnBD != null ? _repository.Delete(id) : false;
+
+            // Operador ternario - Sintaxis
+            // <expresión_lógica> ? <valor_true> : <valor_false>
+
+            // La línea de arriba es equivalente a este bloque comentado
+            /*
+             *  bool exito;
+             *  if (productEnBD != null)
+             *  {
+             *      exito = _repository.Delete(id);
+             *  }
+             *  else
+             *  {
+             *      exito = false;
+             *  }
+             *   return exito;
+             */
+        }
+    }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository2025.Data
+namespace Repository2025.Data.Helpers
 {
     public class DataHelper
     {
@@ -26,7 +26,7 @@ namespace Repository2025.Data
             return _instance;
         }
 
-        public DataTable ExecuteSPQuery(string sp, List<ParametroSP>? param = null)
+        public DataTable ExecuteSpQuery(string sp, List<SpParameter>? param = null)
         {
             DataTable dt = new DataTable();        
             try
@@ -35,12 +35,11 @@ namespace Repository2025.Data
                 _connection.Open();
                 var cmd = new SqlCommand(sp, _connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = sp;
 
                 // Agregamos parámetros si los hay
                 if (param != null)
                 {
-                    foreach (ParametroSP p in param)
+                    foreach (SpParameter p in param)
                     {
                         cmd.Parameters.AddWithValue(p.Name, p.Valor);
                     }
@@ -62,5 +61,42 @@ namespace Repository2025.Data
             return dt;
         }
 
+        // Método para ejecutar SPs con operaciones DML
+        public bool ExecuteSpDml(string sp, List<SpParameter>? param = null)
+        {
+            bool result;
+            try
+            {
+                // Abrimos la conexión
+                _connection.Open();
+                var cmd = new SqlCommand(sp, _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregamos parámetros si los hay
+                if (param != null)
+                {
+                    foreach (SpParameter p in param)
+                    {
+                        cmd.Parameters.AddWithValue(p.Name, p.Valor);
+                    }
+                }
+
+                int affectedRows = cmd.ExecuteNonQuery();
+
+                result = affectedRows > 0;
+            }
+            catch (SqlException ex)
+            {
+                // En caso de error, retornamos false
+                result = false;
+            }
+            finally
+            {
+                // Cerramos la conexión
+                _connection.Close();
+            }
+
+            return result;
+        }
     }
 }

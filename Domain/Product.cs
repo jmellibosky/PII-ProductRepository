@@ -13,6 +13,7 @@ namespace Repository2025.Domain
         public double Precio { get; set; }
         public int Stock { get; set; }
         public bool Activo { get; set; }
+        public List<Ingredient>? Ingredients { get; set; }
 
         public override string ToString()
         {

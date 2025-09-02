@@ -1,4 +1,6 @@
-﻿using Repository2025.Domain;
+﻿using Repository2025.Data.Helpers;
+using Repository2025.Data.Interfaces;
+using Repository2025.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,13 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository2025.Data
+namespace Repository2025.Data.Implementations
 {
     public class ProductRepository : IProductRepository
     {
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            // Preparar parámetros
+            List<SpParameter> param = new List<SpParameter>()
+            {
+                new SpParameter()
+                {
+                    Name = "@codigo",
+                    Valor = id
+                }
+            };
+
+            // Eliminamos el registro correspondiente a través del SP
+            return DataHelper.GetInstance().ExecuteSpDml("SP_REGISTRAR_BAJA_PRODUCTO", param);
         }
 
         public List<Product> GetAll()
@@ -20,7 +33,7 @@ namespace Repository2025.Data
             List<Product> lst = new List<Product>();
             
             // Traer registros de la BD
-            var dt = DataHelper.GetInstance().ExecuteSPQuery("SP_RECUPERAR_PRODUCTOS");
+            var dt = DataHelper.GetInstance().ExecuteSpQuery("SP_RECUPERAR_PRODUCTOS");
 
             // Mapear cada DataRow a un Product
             foreach (DataRow row in dt.Rows)
@@ -40,9 +53,9 @@ namespace Repository2025.Data
         public Product? GetById(int id)
         {
             // Preparar parámetros
-            List<ParametroSP> param = new List<ParametroSP>()
+            List<SpParameter> param = new List<SpParameter>()
             {
-                new ParametroSP()
+                new SpParameter()
                 {
                     Name = "@codigo",
                     Valor = id
@@ -59,7 +72,7 @@ namespace Repository2025.Data
              */
 
             // Traemos el registro correspondiente a través del SP
-            var dt = DataHelper.GetInstance().ExecuteSPQuery("SP_RECUPERAR_PRODUCTO_POR_CODIGO", param);
+            var dt = DataHelper.GetInstance().ExecuteSpQuery("SP_RECUPERAR_PRODUCTO_POR_CODIGO", param);
 
             // Si vino un registro, lo mapeamos a Product y lo retornamos
             if (dt != null && dt.Rows.Count > 0)
