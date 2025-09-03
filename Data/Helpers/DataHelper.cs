@@ -100,19 +100,22 @@ namespace Repository2025.Data.Helpers
             return result;
         }
 
+        // Manejo de transacciones para un Maestro-Detalle (sin Unit of Work)
         public bool ExecuteTransaction(Product product)
         {
             _connection.Open();
 
             // Obtener transaccion a partir de conexion
             SqlTransaction transaction = _connection.BeginTransaction();
-            var cmd = new SqlCommand("SELECT ", _connection, transaction);
 
             // Ejecutar los comandos que hagan falta
-            // Primero tenemos que crear el maestro PRODUCTOS
-            cmd.CommandText = "SP_GUARDAR_PRODUCTO";
+            // Primero tenemos que crear el maestro (en nuestro ejemplo PRODUCTOS)
+
+            // Utilizamos la sobrecarga que utiliza tres parámetros
+            var cmd = new SqlCommand("SP_GUARDAR_PRODUCTO", _connection, transaction);
             cmd.CommandType = CommandType.StoredProcedure;
 
+            // Agregamos los parámetros
             cmd.Parameters.AddWithValue("@codigo", product.Codigo);
             cmd.Parameters.AddWithValue("@nombre", product.Nombre);
             cmd.Parameters.AddWithValue("@stock", product.Stock);
@@ -120,25 +123,40 @@ namespace Repository2025.Data.Helpers
             int affectedRows = cmd.ExecuteNonQuery();
             if (affectedRows <= 0)
             {
+                // Si no se modificaron filas en la BD -> ROLLBACK
+                // Revertimos la transacción y retornamos false
                 transaction.Rollback();
                 return false;
             }
             else
             {
-                // Luego tenemos que crear el detalle INGREDIENTES
+                // En el caso que sí se hayan modificado filas en la BD...
+                // Luego tenemos que crear el detalle (en nuestro ejemplo INGREDIENTES)
+
+                // Recorremos List<Ingredients>
                 foreach (Ingredient i in product.Ingredients)
                 {
-                    SqlCommand cmdDetalle = new SqlCommand("", _connection, transaction);
-                    cmdDetalle.CommandText = "SP_GUARDAR_INGREDIENTE";
+                    // Para cada elemento de la lista tenemos que:
+                    // - Crear un comando
+                    SqlCommand cmdDetalle = new SqlCommand("SP_GUARDAR_INGREDIENTE", _connection, transaction);
                     cmdDetalle.CommandType = CommandType.StoredProcedure;
 
+                    // --------------------
+                    // POR AHORA, HARDCODEAMOS EL CÓDIGO DEL PRODUCTO
+                    // LO IDEAL ES OBTENERLO A PARTIR DE UN PARÁMETRO DE SALIDA
                     int codigoProducto = 1;
+                    // --------------------
+
+                    // - Asignar los parámetros
                     cmdDetalle.Parameters.AddWithValue("@codigo_producto", codigoProducto);
                     cmdDetalle.Parameters.AddWithValue("@nombre", i.Nombre);
                     cmdDetalle.Parameters.AddWithValue("@cantidad", i.Cantidad);
                     cmdDetalle.Parameters.AddWithValue("@unidad", i.Unidad);
 
+                    // - Ejecutar el comando
                     int affectedRowsDetalle = cmdDetalle.ExecuteNonQuery();
+
+                    // - Validar el resultado y revertir en caso de que sea necesario
                     if (affectedRowsDetalle <= 0)
                     {
                         transaction.Rollback();
@@ -146,11 +164,11 @@ namespace Repository2025.Data.Helpers
                     }
                 }
 
+                // Ya insertamos el maestro y todos sus detalles sin problemas -> COMMIT
+                // Se confirma la transacción y se retorna true
                 transaction.Commit();
                 return true;
             }
-
-
         }
     }
 }

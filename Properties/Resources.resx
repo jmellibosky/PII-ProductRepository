@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CadenaConexionLocal" xml:space="preserve">
-    <value>Data Source=172.16.10.196;Initial Catalog=db_almacen_20250902;User ID=alumno1w3;Password=alumno1w3;Trust Server Certificate=True</value>
+    <value>Data Source=LAPTOP-L2VQ7PBO;Initial Catalog=db_almacen;Integrated Security=True;Trust Server Certificate=True</value>
   </data>
 </root>

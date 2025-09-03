@@ -1,4 +1,5 @@
 ﻿using Repository2025.Data;
+using Repository2025.Data.Helpers;
 using Repository2025.Data.Implementations;
 using Repository2025.Data.Interfaces;
 using Repository2025.Domain;
@@ -66,6 +67,11 @@ namespace Repository2025.Services
              *  }
              *   return exito;
              */
+        }
+
+        public bool ExecuteTransaction(Product product)
+        {
+            return DataHelper.GetInstance().ExecuteTransaction(product);
         }
     }
 }
