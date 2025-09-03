@@ -11,5 +11,13 @@ namespace Repository2025.Data.Helpers
     {
         public string Name { get; set; }
         public object Valor { get; set; }
+
+        public SpParameter() { }
+
+        public SpParameter(string name, object valor)
+        {
+            this.Name = name;
+            this.Valor = valor;
+        }
     }
 }

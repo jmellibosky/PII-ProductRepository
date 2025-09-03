@@ -33,6 +33,11 @@ namespace Repository2025.Services
 
         public bool SaveProduct(Product product)
         {
+            if (product.Stock < 0)
+            {
+                return false;
+            }
+
             return _repository.Save(product);
         }
 
@@ -42,6 +47,7 @@ namespace Repository2025.Services
             var productEnBD = _repository.GetById(id);
 
             // Si existe, lo eliminamos
+
             return productEnBD != null ? _repository.Delete(id) : false;
 
             // Operador ternario - Sintaxis

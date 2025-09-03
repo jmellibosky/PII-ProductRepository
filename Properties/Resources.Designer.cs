@@ -61,7 +61,7 @@ namespace Repository2025.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Data Source=LAPTOP-L2VQ7PBO;Initial Catalog=db_almacen;Integrated Security=True;Trust Server Certificate=True.
+        ///   Busca una cadena traducida similar a Data Source=172.16.10.196;Initial Catalog=db_almacen_20250902;User ID=alumno1w3;Password=alumno1w3;Trust Server Certificate=True.
         /// </summary>
         internal static string CadenaConexionLocal {
             get {

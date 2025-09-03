@@ -41,7 +41,7 @@ namespace Repository2025.Data.Implementations
                 Product p = new Product();
                 p.Codigo = (int)row["codigo"];
                 p.Nombre = (string)row["n_producto"];
-                p.Precio = (double)row["precio"];
+                //p.Precio = (double)row["precio"];
                 p.Stock = (int)row["stock"];
                 p.Activo = (bool)row["esta_activo"];
                 lst.Add(p);
@@ -81,7 +81,7 @@ namespace Repository2025.Data.Implementations
                 {
                     Codigo = (int)dt.Rows[0]["codigo"],
                     Nombre = (string)dt.Rows[0]["n_producto"],
-                    Precio = (double)dt.Rows[0]["precio"],
+                    //Precio = (double)dt.Rows[0]["precio"],
                     Stock = (int)dt.Rows[0]["stock"],
                     Activo = (bool)dt.Rows[0]["esta_activo"]
                 };
@@ -94,7 +94,14 @@ namespace Repository2025.Data.Implementations
 
         public bool Save(Product product)
         {
-            throw new NotImplementedException();
+            List<SpParameter> param = new List<SpParameter>()
+            {
+                new SpParameter("@codigo", product.Codigo),
+                new SpParameter("@nombre", product.Nombre),
+                new SpParameter("@stock", product.Stock)
+            };
+
+            return DataHelper.GetInstance().ExecuteSpDml("SP_GUARDAR_PRODUCTO", param);
         }
     }
 }

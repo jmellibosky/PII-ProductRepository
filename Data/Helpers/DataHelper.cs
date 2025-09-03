@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Repository2025.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -97,6 +98,59 @@ namespace Repository2025.Data.Helpers
             }
 
             return result;
+        }
+
+        public bool ExecuteTransaction(Product product)
+        {
+            _connection.Open();
+
+            // Obtener transaccion a partir de conexion
+            SqlTransaction transaction = _connection.BeginTransaction();
+            var cmd = new SqlCommand("SELECT ", _connection, transaction);
+
+            // Ejecutar los comandos que hagan falta
+            // Primero tenemos que crear el maestro PRODUCTOS
+            cmd.CommandText = "SP_GUARDAR_PRODUCTO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@codigo", product.Codigo);
+            cmd.Parameters.AddWithValue("@nombre", product.Nombre);
+            cmd.Parameters.AddWithValue("@stock", product.Stock);
+
+            int affectedRows = cmd.ExecuteNonQuery();
+            if (affectedRows <= 0)
+            {
+                transaction.Rollback();
+                return false;
+            }
+            else
+            {
+                // Luego tenemos que crear el detalle INGREDIENTES
+                foreach (Ingredient i in product.Ingredients)
+                {
+                    SqlCommand cmdDetalle = new SqlCommand("", _connection, transaction);
+                    cmdDetalle.CommandText = "SP_GUARDAR_INGREDIENTE";
+                    cmdDetalle.CommandType = CommandType.StoredProcedure;
+
+                    int codigoProducto = 1;
+                    cmdDetalle.Parameters.AddWithValue("@codigo_producto", codigoProducto);
+                    cmdDetalle.Parameters.AddWithValue("@nombre", i.Nombre);
+                    cmdDetalle.Parameters.AddWithValue("@cantidad", i.Cantidad);
+                    cmdDetalle.Parameters.AddWithValue("@unidad", i.Unidad);
+
+                    int affectedRowsDetalle = cmdDetalle.ExecuteNonQuery();
+                    if (affectedRowsDetalle <= 0)
+                    {
+                        transaction.Rollback();
+                        return false;
+                    }
+                }
+
+                transaction.Commit();
+                return true;
+            }
+
+
         }
     }
 }
